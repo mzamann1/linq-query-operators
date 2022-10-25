@@ -57,7 +57,32 @@ namespace LINQ.Shared
             if (sectionName == null)
                 Console.WriteLine($"\n=========================================\n");
             else
-                Console.WriteLine($"\n================= {sectionName} ======================== \n");
+                Console.WriteLine($"\n================= {sectionName} ========================\n");
+        }
+
+        internal void PrintList(IEnumerable<Student> list)
+        {
+            PrintHeader(typeof(Student).GetProperties().Select(x => x.Name));
+
+            Console.WriteLine("--------------------------------");
+
+            foreach (var item in list)
+            {
+                Console.WriteLine($"   {item.StudentID}   \t    {item.StudentName}   \t  {item.Age}");
+            }
+
+            Console.WriteLine("\n\n");
+        }
+
+        private void PrintHeader(IEnumerable<string> header)
+        {
+            foreach (var headerItem in header)
+            {
+                Console.Write($"{headerItem} | ");
+            }
+
+            Console.WriteLine();
+
         }
     }
 

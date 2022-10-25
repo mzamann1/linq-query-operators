@@ -27,15 +27,15 @@ namespace LINQ.QueryOperators.Filtering
 
             _common.PrintInitials(MethodBase.GetCurrentMethod().Name);
 
-            Console.WriteLine($"\n {MethodBase.GetCurrentMethod().Name} => {nameof(Student)} \n");
+            Console.WriteLine($"\n{MethodBase.GetCurrentMethod().Name} => {nameof(Student)} \n");
 
-            Console.WriteLine(string.Join(' ', _students.Where(x => x.Age > 12 && x.Age < 20).Select(x => x.StudentName)));
+            _common.PrintList(_students.Where(x => x.Age > 12 && x.Age < 20));
 
             var filteredStudents = from student in _students
                                    where student.Age > 12 && student.Age < 20
-                                   select student.StudentName;
+                                   select student;
 
-            Console.WriteLine(string.Join(' ', filteredStudents));
+            _common.PrintList(filteredStudents);
 
             _common.PrintInitials();
         }
@@ -49,16 +49,12 @@ namespace LINQ.QueryOperators.Filtering
 
             Console.WriteLine($"{MethodBase.GetCurrentMethod().Name} => {nameof(Student)}");
 
-            Console.WriteLine(string.Join(' ', _students.OfType<Student>().Select(x => x.StudentName)));
+            _common.PrintList(_students.OfType<Student>());
 
             var filteredStudents = from student in _students.OfType<Student>()
-                                   select student.StudentName;
+                                   select student;
 
-            Console.WriteLine(string.Join(' ', filteredStudents));
-
-            Console.WriteLine($"\n{MethodBase.GetCurrentMethod().Name} => {nameof(String)}");
-
-            Console.WriteLine(string.Join(' ', _students.OfType<string>()));
+            _common.PrintList(filteredStudents);
 
             _common.PrintInitials();
 

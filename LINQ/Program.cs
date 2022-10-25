@@ -1,12 +1,14 @@
-﻿
+﻿using LINQ.QueryOperators.Filtering;
+using LINQ.QueryOperators.Sorting;
 
-
-
-
-
-using LINQ.QueryOperators.Filtering;
-
-//Where Clause
+//Filtering Operators
 Filtering.Where();
+//Filtering.OfType();
 
-Filtering.OfType();
+
+//Sorting
+//Sorting.OrderBy();
+//Sorting.OrderByDescending();
+//Sorting.ThenBy();
+
+
