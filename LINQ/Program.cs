@@ -1,4 +1,5 @@
 ﻿using LINQ.QueryOperators.Filtering;
+using LINQ.QueryOperators.Grouping;
 using LINQ.QueryOperators.Sorting;
 
 //Filtering Operators
@@ -12,3 +13,5 @@ Filtering.Where();
 //Sorting.ThenBy();
 
 
+//Grouping
+Grouping.GroupBy();

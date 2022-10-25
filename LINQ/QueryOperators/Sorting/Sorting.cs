@@ -21,7 +21,7 @@ namespace LINQ.QueryOperators.Sorting
      */
 
 
-    internal class Sorting
+    internal static class Sorting
     {
         private static readonly Common _common;
         private static readonly IEnumerable<Student> _students;

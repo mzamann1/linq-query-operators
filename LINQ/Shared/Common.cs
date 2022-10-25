@@ -68,12 +68,32 @@ namespace LINQ.Shared
 
             foreach (var item in list)
             {
-                Console.WriteLine($"   {item.StudentID}   \t    {item.StudentName}   \t  {item.Age}");
+                PrintLine(item);
             }
 
             Console.WriteLine("\n\n");
         }
 
+        private void PrintLine(Student student)
+        {
+            Console.WriteLine($"   {student.StudentID}   \t    {student.StudentName}   \t  {student.Age}");
+        }
+
+        internal void PrintGroupList(IEnumerable<IGrouping<int, Student>> list, string groupByOn)
+        {
+            foreach (var group in list)
+            {
+                Console.WriteLine($"{groupByOn} Group: {group.Key}"); //Each group has a key 
+
+                PrintHeader(typeof(Student).GetProperties().Select(x => x.Name));
+
+                foreach (Student s in group)
+                {
+                    PrintLine(s);
+                }
+            }
+            Console.WriteLine("\n\n");
+        }
         private void PrintHeader(IEnumerable<string> header)
         {
             foreach (var headerItem in header)
